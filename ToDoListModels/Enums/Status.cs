@@ -1,4 +1,4 @@
-﻿namespace ToDoListBlazorWebAPI.Enums
+﻿namespace ToDoListModels.Enums
 {
     public enum Status
     {

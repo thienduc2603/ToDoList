@@ -3,7 +3,7 @@ using Microsoft.Extensions.Logging;
 using System;
 using System.Linq;
 using ToDoListBlazorWebAPI.Entities;
-using ToDoListBlazorWebAPI.Enums;
+using ToDoListModels.Enums;
 using Task = System.Threading.Tasks.Task;
 
 namespace ToDoListBlazorWebAPI.Data
