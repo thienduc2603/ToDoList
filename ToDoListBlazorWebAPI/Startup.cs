@@ -40,6 +40,16 @@ namespace ToDoListBlazorWebAPI
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "ToDoListBlazorWebAPI", Version = "v1" });
             });
 
+            services.AddCors(options =>
+            {
+                options.AddPolicy("CorsPolicy",
+                    builder => builder
+                    .SetIsOriginAllowed((host) => true)
+                    .AllowAnyMethod()
+                    .AllowAnyHeader()
+                    .AllowCredentials());
+            });
+
             services.AddTransient<ITaskRepository, TaskRepository>();
         }
 
@@ -56,6 +66,8 @@ namespace ToDoListBlazorWebAPI
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseCors("CorsPolicy");
 
             app.UseAuthorization();
 
