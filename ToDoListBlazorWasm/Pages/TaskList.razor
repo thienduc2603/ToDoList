@@ -1,0 +1,68 @@
+﻿@page "/TaskList"
+@using ToDoListBlazorWasm.Components;
+
+<h1>Task List</h1>
+
+@if(Tasks == null){
+    <LoadingIndicator></LoadingIndicator>
+} else {
+    
+    <div class="row">
+        <EditForm>
+
+        </EditForm>
+    </div>
+    <div class="row mt-4">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        Name
+                    </th>
+                    <th>
+                        Priority
+                    </th>
+                    <th>
+                        Assignee
+                    </th>
+                    <th>
+                        Date
+                    </th>
+                    <th>
+                        Status
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Tasks)
+                {
+                    <tr>
+                        <td>
+                            @item.TaskName
+                        </td>
+                        <td>
+                            @item.Priority
+                        </td>
+                        <td>
+                            @item.AssgineeName
+                        </td>
+                        <td>
+                            @item.CreatedDate.ToString("hh:mm dd/MM/yyyy")
+                        </td>
+                        <td>
+                            @item.Status
+                        </td>
+                        <td>
+                            <a href="/taskDetails/@item.Id">
+                                Detail
+                            </a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}
+
+

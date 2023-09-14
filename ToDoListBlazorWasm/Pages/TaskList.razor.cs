@@ -7,12 +7,12 @@ using ToDoListModels;
 
 namespace ToDoListBlazorWasm.Pages
 {
-    public partial class TodoList
+    public partial class TaskList
     {
         [Inject] private ITaskApiClient TaskApiClient { get; set; }
         private List<TaskDto> Tasks;
 
-        protected override async Task OnInitializedAsync()
+        protected async override Task OnInitializedAsync()
         {
             Tasks = await TaskApiClient.GetTaskList();
         }
